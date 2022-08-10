@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2022-08-10T10:51:44 IST" name="Default suite" finished-at="2022-08-10T10:57:44 IST" duration-ms="360706">
+    <groups>
+    </groups>
+    <test started-at="2022-08-10T10:51:44 IST" name="Default test" finished-at="2022-08-10T10:57:44 IST" duration-ms="360706">
+      <class name="RW500PKG.RW500PKGSMOKE">
+        <test-method is-config="true" signature="startup()[pri:0, instance:RW500PKG.RW500PKGSMOKE@54bff557]" started-at="2022-08-10T10:51:39 IST" name="startup" finished-at="2022-08-10T10:51:44 IST" duration-ms="4548" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startup -->
+        <test-method signature="rw500PCKG()[pri:0, instance:RW500PKG.RW500PKGSMOKE@54bff557]" started-at="2022-08-10T10:51:44 IST" name="rw500PCKG" finished-at="2022-08-10T10:57:44 IST" duration-ms="360628" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- rw500PCKG -->
+        <test-method is-config="true" signature="end()[pri:0, instance:RW500PKG.RW500PKGSMOKE@54bff557]" started-at="2022-08-10T10:57:44 IST" name="end" finished-at="2022-08-10T10:57:44 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- end -->
+      </class> <!-- RW500PKG.RW500PKGSMOKE -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
