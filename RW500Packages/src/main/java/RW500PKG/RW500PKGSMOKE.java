@@ -88,7 +88,12 @@ public class RW500PKGSMOKE {
 		// Set new size
 		Dimension newDimension = new Dimension(1032, 776);
 		driver.manage().window().setSize(newDimension);
-
+		currentDimension = driver.manage().window().getSize();
+		height = currentDimension.getHeight();
+		width = currentDimension.getWidth();
+		System.out.println("New height: " + height);
+		System.out.println("New width: " + width);
+		System.out.println("New window size==" + driver.manage().window().getSize());
 		// Getting Dimension newSetDimension = driver.manage().window().getSize();
 		/*
 		 * int newHeight = newSetDimension.getHeight(); int newWidth =
@@ -137,8 +142,9 @@ public class RW500PKGSMOKE {
 				String subject = "Selenium Automation Script: " + Env + " : Route Work Details-500Packages";
 
 				try {
-					Email.sendMail("ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com", subject,
-							msg.toString(), File);
+					Email.sendMail(
+							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+							subject, msg.toString(), File);
 				} catch (Exception ex) {
 					Logger.getLogger(RW500PKGSMOKE.class.getName()).log(Level.SEVERE, null, ex);
 				}
@@ -163,8 +169,9 @@ public class RW500PKGSMOKE {
 				String subject = "Selenium Automation Script: " + Env + " : Route Work Details-500Packages";
 
 				try {
-					Email.sendMail("ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com", subject,
-							msg.toString(), File);
+					Email.sendMail(
+							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+							subject, msg.toString(), File);
 				} catch (Exception ex) {
 					Logger.getLogger(RW500PKGSMOKE.class.getName()).log(Level.SEVERE, null, ex);
 				}
@@ -190,8 +197,9 @@ public class RW500PKGSMOKE {
 				String subject = "Selenium Automation Script: " + Env + " : Route Work Details-500Packages";
 
 				try {
-					Email.sendMail("ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com", subject,
-							msg.toString(), File);
+					Email.sendMail(
+							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+							subject, msg.toString(), File);
 				} catch (Exception ex) {
 					Logger.getLogger(RW500PKGSMOKE.class.getName()).log(Level.SEVERE, null, ex);
 				}
@@ -215,10 +223,11 @@ public class RW500PKGSMOKE {
 				driver.quit();
 				Env = storage.getProperty("Env");
 				String subject = "Selenium Automation Script: " + Env + " : Route Work Smoke";
-				String File =".\\src\\main\\resources\\Screenshots\\LoginIssue.png";
+				String File = ".\\src\\main\\resources\\Screenshots\\LoginIssue.png";
 				try {
-					Email.sendMail("ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com", subject,
-							msg.toString(), File);
+					Email.sendMail(
+							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+							subject, msg.toString(), File);
 
 				} catch (Exception ex) {
 					Logger.getLogger(RW500PKGSMOKE.class.getName()).log(Level.SEVERE, null, ex);
@@ -726,7 +735,13 @@ public class RW500PKGSMOKE {
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@src=\"images/ajax-loader.gif\"]")));
 
 		// Edit RW
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img")));
+		try {
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img")));
+		} catch (Exception EditVis) {
+			WebDriverWait wait1 = new WebDriverWait(driver, 60);
+			wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img")));
+
+		}
 		driver.findElement(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img")).click();
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@src=\"images/ajax-loader.gif\"]")));
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("content1")));
@@ -1038,8 +1053,9 @@ public class RW500PKGSMOKE {
 		String subject = "Selenium Automation Script: " + Env + " : Route Work Details-500Packages";
 
 		try {
-			Email.sendMail("ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com", subject,
-					msg.toString(), "");
+			Email.sendMail(
+					"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+					subject, msg.toString(), "");
 		} catch (Exception ex) {
 			Logger.getLogger(RW500PKGSMOKE.class.getName()).log(Level.SEVERE, null, ex);
 		}
