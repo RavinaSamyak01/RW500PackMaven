@@ -86,7 +86,8 @@ public class RW500PKGSMOKE {
 		System.out.println("window size==" + driver.manage().window().getSize());
 
 		// Set new size
-		Dimension newDimension = new Dimension(1032, 776);
+		// 1032, 776
+		Dimension newDimension = new Dimension(1366, 788);
 		driver.manage().window().setSize(newDimension);
 		currentDimension = driver.manage().window().getSize();
 		height = currentDimension.getHeight();
@@ -748,14 +749,17 @@ public class RW500PKGSMOKE {
 
 		WebElement el = driver.findElement(By.id("btnaddshipment"));
 		js.executeScript("arguments[0].scrollIntoView();", el);
+		Thread.sleep(5000);
+		WebElement Edit = driver.findElement(By.id("btnDownEditStops"));
+		act.moveToElement(Edit).build().perform();
+		Thread.sleep(5000);
 
 		// Change Sequence of shipment-4
 		// *[@id="gvShipmentDetails_ctl06_lbEdit"]
-		wait.until(
-				ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='gvShipmentDetails_ctl06_lbEdit']")));
-		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='gvShipmentDetails_ctl06_lbEdit']")));
 		WebElement element4 = driver.findElement(By.xpath(".//*[@id='gvShipmentDetails_ctl06_lbEdit']"));
-		act.moveToElement(element4).click().build().perform();
+		act.moveToElement(element4).build().perform();
+		wait.until(ExpectedConditions.elementToBeClickable(element4));
+		act.moveToElement(element4).click().perform();
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("content1")));
 
 		driver.findElement(By.id("txtToStopSeq")).clear();
@@ -817,12 +821,20 @@ public class RW500PKGSMOKE {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("currentForm")));
 
 		// Edit RW
-		WebElement imgEdit = driver.findElement(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img"));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img")));
-		imgEdit = driver.findElement(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img"));
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img")));
+		WebElement imgEdit = driver.findElement(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img"));
+		act.moveToElement(imgEdit).build().perform();
 		act.moveToElement(imgEdit).click().perform();
+
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@src=\"images/ajax-loader.gif\"]")));
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("content1")));
+		try {
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("content1")));
+		} catch (Exception ContE) {
+			WebDriverWait wait1 = new WebDriverWait(driver, 50);
+			wait1.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("content1")));
+
+		}
 
 		WebElement el1 = driver.findElement(By.id("btnaddshipment"));
 		js.executeScript("arguments[0].scrollIntoView();", el1);
@@ -857,9 +869,11 @@ public class RW500PKGSMOKE {
 
 		el = driver.findElement(By.id("btnaddshipment"));
 		js.executeScript("arguments[0].scrollIntoView();", el);
-		Thread.sleep(7000);
+		Thread.sleep(5000);
 
 		// Change Sequence of shipment-6
+		wait.until(
+				ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='gvShipmentDetails_ctl08_lbEdit']")));
 		WebElement element6 = driver.findElement(By.xpath(".//*[@id='gvShipmentDetails_ctl08_lbEdit']"));
 		act.moveToElement(element6).build().perform();
 		act.moveToElement(element6).click().perform();
@@ -926,7 +940,12 @@ public class RW500PKGSMOKE {
 		robot.keyPress(KeyEvent.VK_TAB);
 		WebElement el77 = driver.findElement(By.id("chkRecpOrderRcvd"));
 		js.executeScript("arguments[0].scrollIntoView();", el77);
-		driver.findElement(By.id("btnaddshipment")).click();
+		Thread.sleep(2000);
+
+		WebElement AddShipment = driver.findElement(By.id("btnaddshipment"));
+		act.moveToElement(AddShipment).build().perform();
+		wait.until(ExpectedConditions.elementToBeClickable(AddShipment));
+		js.executeScript("arguments[0].click();", AddShipment);
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
 
 		// Click on Done
