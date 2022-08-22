@@ -756,11 +756,23 @@ public class RW500PKGSMOKE {
 
 		// Change Sequence of shipment-4
 		// *[@id="gvShipmentDetails_ctl06_lbEdit"]
-		WebElement element4 = driver.findElement(By.xpath(".//*[@id='gvShipmentDetails_ctl06_lbEdit']"));
-		act.moveToElement(element4).build().perform();
-		wait.until(ExpectedConditions.elementToBeClickable(element4));
-		act.moveToElement(element4).click().perform();
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("content1")));
+		try {
+			wait.until(
+					ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@src=\"images/ajax-loader.gif\"]")));
+			WebElement element4 = driver.findElement(By.xpath(".//*[@id='gvShipmentDetails_ctl06_lbEdit']"));
+			act.moveToElement(element4).build().perform();
+			wait.until(ExpectedConditions.elementToBeClickable(element4));
+			act.moveToElement(element4).click().perform();
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("content1")));
+		} catch (Exception ctl006) {
+			wait.until(
+					ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@src=\"images/ajax-loader.gif\"]")));
+			WebElement element4 = driver.findElement(By.xpath(".//*[@id='gvShipmentDetails_ctl06_lbEdit']"));
+			act.moveToElement(element4).build().perform();
+			wait.until(ExpectedConditions.elementToBeClickable(element4));
+			act.moveToElement(element4).click().perform();
+			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("content1")));
+		}
 
 		driver.findElement(By.id("txtToStopSeq")).clear();
 		driver.findElement(By.id("txtToStopSeq")).sendKeys("5");
@@ -787,6 +799,7 @@ public class RW500PKGSMOKE {
 		driver.findElement(By.id("txtToAddr2")).sendKeys("#300");
 		driver.findElement(By.id("txtToZip")).sendKeys("90405");
 		robot.keyPress(KeyEvent.VK_TAB);
+		Thread.sleep(2000);
 		driver.findElement(By.id("txtToPhone")).sendKeys("(424) 288-2125");
 		driver.findElement(By.id("txtDelInst")).sendKeys("Art Work");
 		driver.findElement(By.id("txtRecipientEmail")).sendKeys("pdoshi@samyak.com");
@@ -825,8 +838,7 @@ public class RW500PKGSMOKE {
 		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img")));
 		WebElement imgEdit = driver.findElement(By.xpath(".//*[@id='dgRWList_lbEdit_0']/img"));
 		act.moveToElement(imgEdit).build().perform();
-		act.moveToElement(imgEdit).click().perform();
-
+		js.executeScript("arguments[0].click();", imgEdit);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@src=\"images/ajax-loader.gif\"]")));
 		try {
 			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("content1")));
