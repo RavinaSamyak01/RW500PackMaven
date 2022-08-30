@@ -95,6 +95,7 @@ public class RW500PKGSMOKE {
 		 * driver.manage().window().setSize(newDimension);
 		 */
 
+		// driver.manage().window().maximize();
 		Dimension currentDimension = driver.manage().window().getSize();
 		int height = currentDimension.getHeight();
 		int width = currentDimension.getWidth();
@@ -601,6 +602,7 @@ public class RW500PKGSMOKE {
 			driver.findElement(By.id("txtToAddr2")).sendKeys("#1600");
 			logs.info("Enter To Address 2");
 			driver.findElement(By.id("txtToZip")).sendKeys("90024");
+			driver.findElement(By.id("txtToZip")).sendKeys(Keys.TAB);
 			logs.info("Enter To Zip");
 			robot.keyPress(KeyEvent.VK_TAB);
 			Thread.sleep(2000);
@@ -645,6 +647,7 @@ public class RW500PKGSMOKE {
 			logs.info("Enter Ref 3");
 			driver.findElement(By.id("btnaddshipment")).click();
 			logs.info("Click on Add Shipment");
+			logs.info("1st shipment added, Stop 1-2");
 
 			WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
 			js.executeScript("arguments[0].scrollIntoView();", EditShip);
@@ -677,6 +680,7 @@ public class RW500PKGSMOKE {
 			logs.info("Enter To Address 1");
 			driver.findElement(By.id("txtToAddr2")).clear();
 			driver.findElement(By.id("txtToZip")).sendKeys("91406");
+			driver.findElement(By.id("txtToZip")).sendKeys(Keys.TAB);
 			logs.info("Enter To Zip");
 			robot.keyPress(KeyEvent.VK_TAB);
 			Thread.sleep(2000);
@@ -696,6 +700,7 @@ public class RW500PKGSMOKE {
 			logs.info("Enter To Ref 3");
 			driver.findElement(By.id("btnaddshipment")).click();
 			logs.info("Click on Add Shipment");
+			logs.info("2nd shipment added, Stop 1-3");
 
 			EditShip = driver.findElement(By.id("btnDownEditStops"));
 			js.executeScript("arguments[0].scrollIntoView();", EditShip);
@@ -728,6 +733,7 @@ public class RW500PKGSMOKE {
 			driver.findElement(By.id("txtToAddr2")).sendKeys("#400");
 			logs.info("Enter To Address 2");
 			driver.findElement(By.id("txtToZip")).sendKeys("91404");
+			driver.findElement(By.id("txtToZip")).sendKeys(Keys.TAB);
 			logs.info("Enter To Zip");
 			robot.keyPress(KeyEvent.VK_TAB);
 			Thread.sleep(2000);
@@ -770,6 +776,7 @@ public class RW500PKGSMOKE {
 			logs.info("Enter Ref 3");
 			driver.findElement(By.id("btnaddshipment")).click();
 			logs.info("Click on Add Shipment");
+			logs.info("3rd shipment added, Stop 1-4");
 
 			EditShip = driver.findElement(By.id("btnDownEditStops"));
 			js.executeScript("arguments[0].scrollIntoView();", EditShip);
@@ -802,6 +809,7 @@ public class RW500PKGSMOKE {
 			logs.info("Enter To Address 1");
 			driver.findElement(By.id("txtToAddr2")).clear();
 			driver.findElement(By.id("txtToZip")).sendKeys("91404");
+			driver.findElement(By.id("txtToZip")).sendKeys(Keys.TAB);
 			logs.info("Enter To Zip");
 			robot.keyPress(KeyEvent.VK_TAB);
 			Thread.sleep(2000);
@@ -871,6 +879,7 @@ public class RW500PKGSMOKE {
 			logs.info("Enter Ref 3");
 			driver.findElement(By.id("btnaddshipment")).click();
 			logs.info("Click on Add Shipment");
+			logs.info("4th shipment added, Stop 1-6");
 
 			EditShip = driver.findElement(By.id("btnDownEditStops"));
 			js.executeScript("arguments[0].scrollIntoView();", EditShip);
@@ -975,10 +984,11 @@ public class RW500PKGSMOKE {
 			Thread.sleep(5000);
 			logs.info("Scroll to Add Shipment");
 
-			WebElement Edit = driver.findElement(By.id("btnDownEditStops"));
-			act.moveToElement(Edit).build().perform();
-			Thread.sleep(2000);
-			logs.info("Scroll to Edit STop");
+			/*
+			 * WebElement Edit = driver.findElement(By.id("btnDownEditStops"));
+			 * act.moveToElement(Edit).build().perform(); Thread.sleep(2000);
+			 * logs.info("Scroll to Edit STop");
+			 */
 
 			// Change Sequence of shipment-4
 			// *[@id="gvShipmentDetails_ctl06_lbEdit"]
@@ -1047,6 +1057,7 @@ public class RW500PKGSMOKE {
 			driver.findElement(By.id("txtToAddr2")).sendKeys("#300");
 			logs.info("Enter To Address 2");
 			driver.findElement(By.id("txtToZip")).sendKeys("90405");
+			driver.findElement(By.id("txtToZip")).sendKeys(Keys.TAB);
 			logs.info("Enter To Zip");
 			robot.keyPress(KeyEvent.VK_TAB);
 			Thread.sleep(2000);
@@ -1170,15 +1181,18 @@ public class RW500PKGSMOKE {
 			Thread.sleep(2000);
 			logs.info("Scroll to Add Shipment");
 
-			EditShip = driver.findElement(By.id("btnDownEditStops"));
-			js.executeScript("arguments[0].scrollIntoView();", EditShip);
-			Thread.sleep(2000);
-			logs.info("Scroll to Edit Stop");
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			/*
+			 * EditShip = driver.findElement(By.id("btnDownEditStops"));
+			 * js.executeScript("arguments[0].scrollIntoView();", EditShip);
+			 * Thread.sleep(2000); logs.info("Scroll to Edit Stop");
+			 * 
+			 * wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id(
+			 * "gvShipmentDetails")));
+			 * 
+			 * act.moveToElement(EditShip).build().perform(); Thread.sleep(2000);
+			 */
 
-			act.moveToElement(EditShip).build().perform();
-			Thread.sleep(2000);
-// Change Sequence of shipment-6
+			// Change Sequence of shipment-6
 			wait.until(ExpectedConditions
 					.visibilityOfElementLocated(By.xpath(".//*[@id='gvShipmentDetails_ctl08_lbEdit']")));
 			WebElement element6 = driver.findElement(By.xpath(".//*[@id='gvShipmentDetails_ctl08_lbEdit']"));
@@ -1218,11 +1232,10 @@ public class RW500PKGSMOKE {
 					ExpectedConditions.visibilityOfElementLocated(By.xpath(".//*[@id='dgRWList_lbActivate_0']/img")));
 			driver.findElement(By.xpath(".//*[@id='dgRWList_lbActivate_0']/img")).click();
 			logs.info("Click on Activate button");
-			Thread.sleep(2000);
 
 			driver.switchTo().alert();
 			driver.switchTo().alert().accept();
-			Thread.sleep(5000);
+			Thread.sleep(2000);
 			logs.info("Accept the Alert");
 
 			// Edit RW
@@ -1306,10 +1319,8 @@ public class RW500PKGSMOKE {
 			// Active RW
 			driver.findElement(By.xpath(".//*[@id='dgRWList_lbActivate_0']/img")).click();
 			logs.info("Click on Activate");
-			Thread.sleep(2000);
 
 			driver.switchTo().alert();
-			Thread.sleep(2000);
 			driver.switchTo().alert().accept();
 			Thread.sleep(2000);
 			logs.info("Click on Ok button of alert");
