@@ -75,6 +75,9 @@ public class RW500PKGSMOKE {
 		options.addArguments("--proxy-bypass-list=*");
 		options.addArguments("--disable-extensions");
 		options.addArguments("--no-sandbox");
+		options.addArguments("enable-automation");
+		options.addArguments("--dns-prefetch-disable");
+		options.addArguments("--disable-gpu");
 		String downloadFilepath = System.getProperty("user.dir") + "\\src\\main\\resources\\Downloads";
 		HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
 		chromePrefs.put("profile.default_content_settings.popups", 0);
@@ -809,6 +812,7 @@ public class RW500PKGSMOKE {
 			logs.info("Enter To Address 1");
 			driver.findElement(By.id("txtToAddr2")).clear();
 			driver.findElement(By.id("txtToZip")).sendKeys("91404");
+			driver.findElement(By.id("txtToZip")).sendKeys(Keys.TAB);
 			driver.findElement(By.id("txtToZip")).sendKeys(Keys.TAB);
 			logs.info("Enter To Zip");
 			robot.keyPress(KeyEvent.VK_TAB);
