@@ -931,7 +931,9 @@ public class RW500PKGSMOKE {
 			// Process5: Create RW with Draft
 
 			// Click SaveforLater for Draft
-			driver.findElement(By.id("btnsaveforlater")).click();
+			WebElement SaveForLater = driver.findElement(By.id("btnsaveforlater"));
+			wait.until(ExpectedConditions.elementToBeClickable(SaveForLater));
+			js.executeScript("arguments[0].click();", SaveForLater);
 			logs.info("Click on Save For Later button");
 			Thread.sleep(5000);
 
@@ -1435,30 +1437,28 @@ public class RW500PKGSMOKE {
 			msg.append("Recurrence Verification : " + RecMsg + "\n\n");
 
 			msg.append("*** This is automated generated email and send through automation script" + "\n");
+			// msg.append("Process URL : " + baseUrl);
+			Env = storage.getProperty("Env");
+			String subject = "Selenium Automation Script: " + Env + " : Route Work Details-500Packages";
 
+			try {
+
+				Email.sendMail(
+						"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+						subject, msg.toString(), "");
+
+				// Email.sendMail("ravina.prajapati@samyak.com", subject, msg.toString(), "");
+
+			} catch (Exception ex) {
+				logs.error(ex);
+			}
 		} catch (Exception e) {
 			logs.error(e);
 			getScreenshot(driver, "RW500Issue");
 			System.out.println("Issue in RW500");
-			msg.append("RW500 Process FAIL" + "\n\n");
 
 		}
 
-		// msg.append("Process URL : " + baseUrl);
-		Env = storage.getProperty("Env");
-		String subject = "Selenium Automation Script: " + Env + " : Route Work Details-500Packages";
-
-		try {
-
-			Email.sendMail(
-					"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
-					subject, msg.toString(), "");
-
-			// Email.sendMail("ravina.prajapati@samyak.com", subject, msg.toString(), "");
-
-		} catch (Exception ex) {
-			logs.error(ex);
-		}
 		driver.quit();
 	}
 
