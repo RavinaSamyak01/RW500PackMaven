@@ -578,6 +578,8 @@ public class RW500PKGSMOKE {
 			driver.findElement(By.id("txtFromAddr2")).sendKeys("");
 			logs.info("Enter From Address 2");
 			driver.findElement(By.id("txtFromZip")).sendKeys("90067");
+			driver.findElement(By.id("txtFromZip")).sendKeys(Keys.TAB);
+			Thread.sleep(2000);
 			logs.info("Enter From Zip");
 			robot.keyPress(KeyEvent.VK_TAB);
 			Thread.sleep(2000);
@@ -797,6 +799,7 @@ public class RW500PKGSMOKE {
 			// From
 			driver.findElement(By.id("txtFromStopSeq")).clear();
 			driver.findElement(By.id("txtFromStopSeq")).sendKeys("1");
+			driver.findElement(By.id("txtFromStopSeq")).sendKeys(Keys.TAB);
 			logs.info("Enter from stop seq 1");
 			robot.keyPress(KeyEvent.VK_TAB);
 			Thread.sleep(2000);
