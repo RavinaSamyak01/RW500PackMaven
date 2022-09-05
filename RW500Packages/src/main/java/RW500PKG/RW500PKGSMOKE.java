@@ -964,7 +964,9 @@ public class RW500PKGSMOKE {
 			driver.findElement(By.id("txtRouteWorkId")).sendKeys(RWid1);
 			logs.info("Enter RWID");
 			Thread.sleep(2000);
-			driver.findElement(By.id("btnSearch")).click();
+			WebElement BTnSearch = driver.findElement(By.id("btnSearch"));
+			wait.until(ExpectedConditions.elementToBeClickable(BTnSearch));
+			js.executeScript("arguments[0].click();", BTnSearch);
 			logs.info("Click on Search button");
 			Thread.sleep(5000);
 
