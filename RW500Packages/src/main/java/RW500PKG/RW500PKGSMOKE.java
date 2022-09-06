@@ -650,15 +650,46 @@ public class RW500PKGSMOKE {
 			logs.info("Enter Ref 1");
 			driver.findElement(By.id("txtRouteWorkRef3")).sendKeys("Ref3 Ship1");
 			logs.info("Enter Ref 3");
-			driver.findElement(By.id("btnaddshipment")).click();
-			logs.info("Click on Add Shipment");
-			logs.info("1st shipment added, Stop 1-2");
 
-			WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
-			js.executeScript("arguments[0].scrollIntoView();", EditShip);
-			logs.info("Scrollto Edit STop");
-			Thread.sleep(2000);
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("1st shipment added, Stop 1-2");
+
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue1_1");
+
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue2_2");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("1st shipment added, Stop 1-2");
+
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+
+			}
 
 			WebElement ShipmentDetails = driver.findElement(By.id("module.shipment._header"));
 			js.executeScript("arguments[0].scrollIntoView();", ShipmentDetails);
@@ -703,16 +734,45 @@ public class RW500PKGSMOKE {
 			logs.info("Enter To Ref 1");
 			driver.findElement(By.id("txtRouteWorkRef3")).sendKeys("Ref3 Ship2");
 			logs.info("Enter To Ref 3");
-			driver.findElement(By.id("btnaddshipment")).click();
-			logs.info("Click on Add Shipment");
-			logs.info("2nd shipment added, Stop 1-3");
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("2nd shipment added, Stop 1-3");
 
-			EditShip = driver.findElement(By.id("btnDownEditStops"));
-			js.executeScript("arguments[0].scrollIntoView();", EditShip);
-			logs.info("Scroll to Edit stop");
-			Thread.sleep(2000);
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue1_2");
 
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue2_2");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("2nd shipment added, Stop 1-3");
+
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+
+			}
 			ShipmentDetails = driver.findElement(By.id("module.shipment._header"));
 			js.executeScript("arguments[0].scrollIntoView();", ShipmentDetails);
 			Thread.sleep(5000);
@@ -779,16 +839,45 @@ public class RW500PKGSMOKE {
 			logs.info("Enter To Ref 1");
 			driver.findElement(By.id("txtRouteWorkRef3")).sendKeys("Ref3 Ship3");
 			logs.info("Enter Ref 3");
-			driver.findElement(By.id("btnaddshipment")).click();
-			logs.info("Click on Add Shipment");
-			logs.info("3rd shipment added, Stop 1-4");
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("3rd shipment added, Stop 1-4");
 
-			EditShip = driver.findElement(By.id("btnDownEditStops"));
-			js.executeScript("arguments[0].scrollIntoView();", EditShip);
-			Thread.sleep(2000);
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
-			logs.info("SCroll to Edit stop");
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue1_3");
 
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue2_3");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("3rd shipment added, Stop 1-4");
+
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+
+			}
 			ShipmentDetails = driver.findElement(By.id("module.shipment._header"));
 			js.executeScript("arguments[0].scrollIntoView();", ShipmentDetails);
 			Thread.sleep(5000);
@@ -884,16 +973,45 @@ public class RW500PKGSMOKE {
 			logs.info("Enter Ref 1");
 			driver.findElement(By.id("txtRouteWorkRef3")).sendKeys("Ref3 Ship4");
 			logs.info("Enter Ref 3");
-			driver.findElement(By.id("btnaddshipment")).click();
-			logs.info("Click on Add Shipment");
-			logs.info("4th shipment added, Stop 1-6");
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("4th shipment added, Stop 1-6");
 
-			EditShip = driver.findElement(By.id("btnDownEditStops"));
-			js.executeScript("arguments[0].scrollIntoView();", EditShip);
-			Thread.sleep(5000);
-			logs.info("Scroll down to Edit stop");
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue1_4");
 
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue2_4");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("4th shipment added, Stop 1-6");
+
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+
+			}
 			// Process4: Check validation on Save for missing shipment sequence
 
 			// Click on Done for validation
@@ -931,18 +1049,48 @@ public class RW500PKGSMOKE {
 			// Process5: Create RW with Draft
 
 			// Click SaveforLater for Draft
-			WebElement SaveForLater = driver.findElement(By.id("btnsaveforlater"));
-			wait.until(ExpectedConditions.elementToBeClickable(SaveForLater));
-			js.executeScript("arguments[0].click();", SaveForLater);
-			logs.info("Click on Save For Later button");
-			Thread.sleep(5000);
 
-			wait.until(
-					ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[@src=\"images/ajax-loader.gif\"]")));
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("currentForm")));
+			try {
+				WebElement SaveForLater = driver.findElement(By.id("btnsaveforlater"));
+				wait.until(ExpectedConditions.elementToBeClickable(SaveForLater));
+				js.executeScript("arguments[0].click();", SaveForLater);
+				logs.info("Click on Save For Later button");
+				Thread.sleep(5000);
 
-			// Get Generated RWId
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lmsg")));
+				wait.until(ExpectedConditions
+						.invisibilityOfElementLocated(By.xpath("//*[@src=\"images/ajax-loader.gif\"]")));
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("currentForm")));
+
+				// Get Generated RWId
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lmsg")));
+			} catch (Exception SaveorLaterE) {
+				logs.error(SaveorLaterE);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "SaveForLater_1");
+
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "SaveForLater_2");
+
+				WebElement SaveForLater = driver.findElement(By.id("btnsaveforlater"));
+				wait.until(ExpectedConditions.elementToBeClickable(SaveForLater));
+				js.executeScript("arguments[0].click();", SaveForLater);
+				logs.info("Click on Save For Later button");
+				Thread.sleep(5000);
+
+				wait.until(ExpectedConditions
+						.invisibilityOfElementLocated(By.xpath("//*[@src=\"images/ajax-loader.gif\"]")));
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("currentForm")));
+
+				// Get Generated RWId
+				wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("lmsg")));
+			}
+
 			String RWIdtext = driver.findElement(By.id("lmsg")).getText();
 			logs.info("Message==" + RWIdtext);
 			getScreenshot(driver, "CreatedRW500");
@@ -1034,15 +1182,47 @@ public class RW500PKGSMOKE {
 			Thread.sleep(2000);
 			logs.info("Scroll to Recp Order Rcvd");
 
-			driver.findElement(By.id("btnaddshipment")).click();
-			logs.info("Click on Add Shipment");
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("4th shipment updated, Stop 1-5");
 
-			EditShip = driver.findElement(By.id("btnDownEditStops"));
-			js.executeScript("arguments[0].scrollIntoView();", EditShip);
-			Thread.sleep(2000);
-			logs.info("Scroll to Edit Stop");
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+				/*
+				 * WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				 * js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				 * logs.info("Scrollto Edit STop"); Thread.sleep(2000);
+				 */
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "UpdateShipmentissue1_4");
 
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "UpdateShipmentissue2_4");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("4th shipment updated, Stop 1-5");
+
+				/*
+				 * WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				 * js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				 * logs.info("Scrollto Edit STop"); Thread.sleep(2000);
+				 */
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+
+			}
 			ShipmentDetails = driver.findElement(By.id("module.shipment._header"));
 			js.executeScript("arguments[0].scrollIntoView();", ShipmentDetails);
 			Thread.sleep(2000);
@@ -1090,15 +1270,45 @@ public class RW500PKGSMOKE {
 			driver.findElement(By.id("txtRouteWorkRef3")).sendKeys("Ref3 Ship5");
 			logs.info("Enter To Ref 3");
 
-			driver.findElement(By.id("btnaddshipment")).click();
-			logs.info("Click on Add Shipment");
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("5th shipment added, Stop 1-6");
 
-			EditShip = driver.findElement(By.id("btnDownEditStops"));
-			js.executeScript("arguments[0].scrollIntoView();", EditShip);
-			Thread.sleep(5000);
-			logs.info("Scroll to Edit stop");
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue1_5");
 
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue2_5");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("5th shipment added, Stop 1-6");
+
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+
+			}
 			// Click no Done.
 			BtnDone = driver.findElement(By.id("btndone"));
 			js.executeScript("arguments[0].scrollIntoView();", BtnDone);
@@ -1184,9 +1394,39 @@ public class RW500PKGSMOKE {
 			logs.info("Enter Ref 1");
 			driver.findElement(By.id("txtRouteWorkRef3")).sendKeys("Ref3 Ship6");
 			logs.info("Enter Ref 3");
-			driver.findElement(By.id("btnaddshipment")).click();
-			logs.info("Click on Add Shipment");
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("6th shipment added, Stop 3-6");
 
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue1_6");
+
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue2_6");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("6th shipment added, Stop 3-6");
+
+			}
 			el = driver.findElement(By.id("btnaddshipment"));
 			js.executeScript("arguments[0].scrollIntoView();", el);
 			Thread.sleep(2000);
@@ -1222,9 +1462,41 @@ public class RW500PKGSMOKE {
 			js.executeScript("arguments[0].scrollIntoView();", el6);
 			Thread.sleep(5000);
 			logs.info("Scroll to Recp Order Rcvd");
-			driver.findElement(By.id("btnaddshipment")).click();
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("update shipment 6, Stop 2-3");
 
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "UpdateShipmentissue1_6");
+
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "UpdateShipmentissue2_6");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("update shipment 6, Stop 2-3");
+
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+
+			}
 			// Click on Done
 			BtnDone = driver.findElement(By.id("btndone"));
 			js.executeScript("arguments[0].scrollIntoView();", BtnDone);
@@ -1276,17 +1548,46 @@ public class RW500PKGSMOKE {
 			logs.info("Enter Ref 1");
 			driver.findElement(By.id("txtRouteWorkRef3")).sendKeys("Ref3 Ship7");
 			logs.info("Enter Ref 3");
-			driver.findElement(By.id("btnaddshipment")).click();
-			logs.info("Click on Add Shipment");
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("7th shipment added, Stop 4-6");
 
-			EditShip = driver.findElement(By.id("btnDownEditStops"));
-			js.executeScript("arguments[0].scrollIntoView();", EditShip);
-			Thread.sleep(5000);
-			logs.info("Scroll to Edit STop");
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue1_7");
 
-			// Change Sequence of shipment-7
-			// *[@id="gvShipmentDetails_ctl06_lbEdit"]
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "AddShipmentissue2_7");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("7th shipment added, Stop 4-6");
+
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+
+			} // Change Sequence of shipment-7
+				// *[@id="gvShipmentDetails_ctl06_lbEdit"]
 			WebElement element7 = driver.findElement(By.xpath(".//*[@id='gvShipmentDetails_ctl09_lbEdit']"));
 			act.moveToElement(element7).click().build().perform();
 			logs.info("Click on Edit button of shipment 7");
@@ -1300,18 +1601,45 @@ public class RW500PKGSMOKE {
 			Thread.sleep(2000);
 			logs.info("Scroll to Recp Order Rcvd");
 
-			WebElement AddShipment = driver.findElement(By.id("btnaddshipment"));
-			act.moveToElement(AddShipment).build().perform();
-			wait.until(ExpectedConditions.elementToBeClickable(AddShipment));
-			js.executeScript("arguments[0].click();", AddShipment);
-			logs.info("Click on Add Shipment");
+			try {
+				driver.findElement(By.id("btnaddshipment")).click();
+				logs.info("Click on Add Shipment");
+				logs.info("Update shipment 7, Stop 3-6");
 
-			EditShip = driver.findElement(By.id("btnDownEditStops"));
-			js.executeScript("arguments[0].scrollIntoView();", EditShip);
-			Thread.sleep(5000);
-			logs.info("Scroll to Edit stop");
-			wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+			} catch (Exception AddShipmente) {
+				logs.error(AddShipmente);
+				// --Scroll up
+				js.executeScript("window.scrollBy(0,-250)", "");
+				js.executeScript("scroll(0, -250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "updateShipmentissue1_7");
 
+				// --Scroll Down
+				js.executeScript("window.scrollBy(0,250)", "");
+				js.executeScript("scroll(0, 250);");
+				Thread.sleep(2000);
+				getScreenshot(driver, "updateShipmentissue2_7");
+
+				WebElement BTNAddShipment = driver.findElement(By.id("btnaddshipment"));
+				wait.until(ExpectedConditions.visibilityOf(BTNAddShipment));
+				act.moveToElement(BTNAddShipment).build().perform();
+				wait.until(ExpectedConditions.elementToBeClickable(BTNAddShipment));
+				js.executeScript("arguments[0].click();", BTNAddShipment);
+				logs.info("Click on Add Shipment");
+				logs.info("Update shipment 7, Stop 3-6");
+
+				WebElement EditShip = driver.findElement(By.id("btnDownEditStops"));
+				js.executeScript("arguments[0].scrollIntoView();", EditShip);
+				logs.info("Scrollto Edit STop");
+				Thread.sleep(2000);
+				wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("gvShipmentDetails")));
+
+			}
 			// Click on Done
 			WebElement eld7 = driver.findElement(By.id("btndone"));
 			js.executeScript("arguments[0].scrollIntoView();", eld7);
