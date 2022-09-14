@@ -259,6 +259,8 @@ public class RW500PKGSMOKE {
 
 	@Test
 	public void rw500PCKG() throws Exception {
+		WebDriverWait wait = new WebDriverWait(driver, 50);
+		Actions act = new Actions(driver);
 		String logFilename = this.getClass().getSimpleName();
 		logs = Logger.getLogger(logFilename);
 		Robot robot = new Robot();
@@ -273,8 +275,6 @@ public class RW500PKGSMOKE {
 
 		try {
 			// Open Menu > Submenu > Submenu -- "RW Form page"
-			WebDriverWait wait = new WebDriverWait(driver, 50);
-			Actions act = new Actions(driver);
 
 			driver.findElement(By.linkText("Admin")).click();
 			logs.info("Clicked on Admin");
