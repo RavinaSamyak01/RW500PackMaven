@@ -46,7 +46,7 @@ public class RW500PKGSMOKE {
 	public static GenerateData genData;
 
 	public static String RdyTime;
-	public static String RecMsg, st;
+	public static String RecMsg, st;	
 
 	public static int rcount;
 	public static int RWpcs, SHPpcs;
@@ -66,9 +66,9 @@ public class RW500PKGSMOKE {
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions options = new ChromeOptions();
-		// options.addArguments("--headless", "--window-size=1920,1200");
-		options.addArguments("--headless", "--window-size=1382, 744");
-		// options.addArguments("window-size=1382,744");
+		//options.addArguments("--headless", "--window-size=1920,1200");
+		//options.addArguments("--headless", "--window-size=1382, 744");
+		//options.addArguments("window-size=1382,744");	
 		options.addArguments("--incognito");
 		options.addArguments("--test-type");
 		options.addArguments("--no-proxy-server");
@@ -98,7 +98,7 @@ public class RW500PKGSMOKE {
 		 * driver.manage().window().setSize(newDimension);
 		 */
 
-		// driver.manage().window().maximize();
+		driver.manage().window().maximize();
 		Dimension currentDimension = driver.manage().window().getSize();
 		int height = currentDimension.getHeight();
 		int width = currentDimension.getWidth();
@@ -1314,6 +1314,7 @@ public class RW500PKGSMOKE {
 			js.executeScript("arguments[0].scrollIntoView();", BtnDone);
 			Thread.sleep(2000);
 			logs.info("Scroll to Done");
+			wait.until(ExpectedConditions.elementToBeClickable(BtnDone));
 			act.moveToElement(BtnDone).click().perform();
 			logs.info("Click on Done button");
 			wait.until(
