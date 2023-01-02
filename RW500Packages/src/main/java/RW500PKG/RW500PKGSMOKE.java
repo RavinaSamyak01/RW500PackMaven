@@ -155,7 +155,7 @@ public class RW500PKGSMOKE {
 
 				try {
 					Email.sendMail(
-							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
 							subject, msg.toString(), File);
 				} catch (Exception ex) {
 					logs.error(ex);
@@ -182,7 +182,7 @@ public class RW500PKGSMOKE {
 
 				try {
 					Email.sendMail(
-							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
 							subject, msg.toString(), File);
 				} catch (Exception ex) {
 					logs.error(ex);
@@ -210,7 +210,7 @@ public class RW500PKGSMOKE {
 
 				try {
 					Email.sendMail(
-							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
 							subject, msg.toString(), File);
 				} catch (Exception ex) {
 					logs.error(ex);
@@ -237,8 +237,7 @@ public class RW500PKGSMOKE {
 				String subject = "Selenium Automation Script: " + Env + " : Route Work Smoke";
 				String File = ".\\src\\main\\resources\\Screenshots\\LoginIssue.png";
 				try {
-					Email.sendMail(
-							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+					Email.sendMail("ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
 							subject, msg.toString(), File);
 
 				} catch (Exception ex) {
@@ -1895,7 +1894,7 @@ public class RW500PKGSMOKE {
 				 * if (ActGen2.contains(Expdate2final)) { if (ActGen3.contains(Expdate3final)) {
 				 * RecMsg = "All Schedule will generate proper as per recurrence set";
 				 * System.out.println(RecMsg); } }
-				 */						
+				 */
 				RecMsg = "All Schedule will generate proper as per recurrence set";
 				System.out.println(RecMsg);
 			}
@@ -1938,7 +1937,7 @@ public class RW500PKGSMOKE {
 			try {
 
 				Email.sendMail(
-						"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com, saurabh.jain@samyak.com, himanshu.dholakia@samyak.com",
+						"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
 						subject, msg.toString(), "");
 
 				// Email.sendMail("ravina.prajapati@samyak.com", subject, msg.toString(), "");
