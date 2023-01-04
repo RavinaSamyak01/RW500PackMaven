@@ -53,9 +53,11 @@ public class RW500PKGSMOKE {
 	public static int i;
 	public static Properties storage = new Properties();
 	public static Logger logs;
+	String EmailID = storage.getProperty("MainEmailAddress");
 
 	@BeforeSuite
 	public void startup() throws IOException {
+		System.out.println("MainEmailAddress " + EmailID);
 		String logFilename = this.getClass().getSimpleName();
 		logs = Logger.getLogger(logFilename);
 		storage = new Properties();
@@ -154,9 +156,7 @@ public class RW500PKGSMOKE {
 				String subject = "Selenium Automation Script: " + Env + " : Route Work Details-500Packages";
 
 				try {
-					Email.sendMail(
-							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
-							subject, msg.toString(), File);
+					Email.sendMail(EmailID, subject, msg.toString(), File);
 				} catch (Exception ex) {
 					logs.error(ex);
 				}
@@ -181,9 +181,7 @@ public class RW500PKGSMOKE {
 				String subject = "Selenium Automation Script: " + Env + " : Route Work Details-500Packages";
 
 				try {
-					Email.sendMail(
-							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
-							subject, msg.toString(), File);
+					Email.sendMail(EmailID, subject, msg.toString(), File);
 				} catch (Exception ex) {
 					logs.error(ex);
 				}
@@ -209,9 +207,7 @@ public class RW500PKGSMOKE {
 				String subject = "Selenium Automation Script: " + Env + " : Route Work Details-500Packages";
 
 				try {
-					Email.sendMail(
-							"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
-							subject, msg.toString(), File);
+					Email.sendMail(EmailID, subject, msg.toString(), File);
 				} catch (Exception ex) {
 					logs.error(ex);
 				}
@@ -237,8 +233,7 @@ public class RW500PKGSMOKE {
 				String subject = "Selenium Automation Script: " + Env + " : Route Work Smoke";
 				String File = ".\\src\\main\\resources\\Screenshots\\LoginIssue.png";
 				try {
-					Email.sendMail("ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
-							subject, msg.toString(), File);
+					Email.sendMail(EmailID, subject, msg.toString(), File);
 
 				} catch (Exception ex) {
 					logs.error(ex);
@@ -1936,9 +1931,7 @@ public class RW500PKGSMOKE {
 
 			try {
 
-				Email.sendMail(
-						"ravina.prajapati@samyak.com,asharma@samyak.com,parth.doshi@samyak.com,saurabh.jain@samyak.com",
-						subject, msg.toString(), "");
+				Email.sendMail(EmailID, subject, msg.toString(), "");
 
 				// Email.sendMail("ravina.prajapati@samyak.com", subject, msg.toString(), "");
 
